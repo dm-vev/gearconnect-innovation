@@ -86,10 +86,10 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
-        <nav className="glass mx-auto mt-4 px-8 py-4 rounded-lg bg-white/60 w-[90%]">
-          <div className="flex items-center justify-center gap-12">
+        <nav className="glass mx-auto mt-4 px-4 sm:px-8 py-4 rounded-lg bg-white/60 w-[90%]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12">
             <div className="text-xl font-bold">GearTech</div>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Продукты</a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Контакты</a>

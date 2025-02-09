@@ -7,6 +7,15 @@ import { useNavigate } from "react-router-dom";
 const Index = () => {
   const typedRef = useRef(null);
   const navigate = useNavigate();
+  const productsRef = useRef<HTMLElement>(null);
+
+  const scrollToProducts = () => {
+    productsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openTelegram = () => {
+    window.open('https://t.me/dmvev', '_blank');
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,17 +85,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-b border-white/20 z-50">
-        <div className="container mx-auto py-4">
-          <nav className="flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
+        <nav className="glass mx-4 mt-4 px-8 py-4 rounded-full bg-white/60 w-fit">
+          <div className="flex items-center gap-12">
             <div className="text-xl font-bold">GearTech</div>
             <div className="flex gap-6">
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Продукты</a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Контакты</a>
             </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </header>
 
       <section className="section-padding pt-32 min-h-[80vh] flex items-center justify-center relative overflow-hidden">
@@ -107,7 +116,10 @@ const Index = () => {
               Создаем передовые решения в области ИИ, спутниковой связи и робототехники
               для трансформации бизнеса и общества
             </p>
-            <button className="glass px-8 py-4 rounded-full text-lg font-medium hover:bg-white/90 transition-all">
+            <button 
+              onClick={scrollToProducts}
+              className="glass px-8 py-4 rounded-full text-lg font-medium hover:bg-white/90 transition-all"
+            >
               Узнать больше
             </button>
           </motion.div>
@@ -115,7 +127,7 @@ const Index = () => {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent to-background/20"></div>
       </section>
 
-      <section className="section-padding bg-secondary/50">
+      <section ref={productsRef} className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="section-title">Наши продукты</h2>
@@ -166,17 +178,23 @@ const Index = () => {
             Свяжитесь с нами, чтобы узнать, как наши технологии могут помочь вашему бизнесу
           </p>
           <div className="flex gap-4 justify-center">
-            <button className="glass px-8 py-4 rounded-full text-lg font-medium hover:bg-white/90 transition-all">
+            <button 
+              onClick={openTelegram}
+              className="glass px-8 py-4 rounded-full text-lg font-medium hover:bg-white/90 transition-all"
+            >
               Связаться с нами
             </button>
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/90 transition-all">
+            <button 
+              onClick={openTelegram}
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/90 transition-all"
+            >
               Заказать демо
             </button>
           </div>
         </div>
       </section>
 
-      <footer className="bg-black/10 backdrop-blur-md border-t border-white/10">
+      <footer className="bg-white/5 backdrop-blur-md border-t border-white/10">
         <div className="container mx-auto py-6 px-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>© 2024 GearTech. Все права защищены.</p>

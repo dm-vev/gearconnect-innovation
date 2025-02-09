@@ -1,7 +1,8 @@
 
-import { useParams } from 'react-router-dom';
-import { Brain, Satellite, Network, Globe, Bot } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
+import { Brain, Satellite, Network, Globe, Bot, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from "@/components/ui/button";
 
 const products = {
   gearai: {
@@ -114,9 +115,23 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="bg-white/80 backdrop-blur-lg border-b border-white/20 mb-12">
-        <div className="container mx-auto py-6">
-          <h1 className="text-3xl font-bold">{product.name}</h1>
+      <header className="relative bg-transparent mb-12">
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-[#33C3F0]/80 to-[#1EAEDB]/60 backdrop-blur-md"
+          style={{
+            boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+            borderBottom: '1px solid rgba(255,255,255,0.3)'
+          }}
+        />
+        <div className="container mx-auto py-6 relative">
+          <div className="flex items-center gap-4">
+            <Link to="/">
+              <Button variant="ghost" size="icon" className="hover:bg-white/20 transition-colors">
+                <ArrowLeft className="w-5 h-5" />
+              </Button>
+            </Link>
+            <h1 className="text-3xl font-bold text-white">{product.name}</h1>
+          </div>
         </div>
       </header>
 
@@ -137,32 +152,42 @@ const ProductDetail = () => {
             </div>
           </div>
           
-          <p className="text-lg mb-6">{product.fullDescription}</p>
-
-          <div className="mb-8">
-            <h3 className="text-xl font-semibold mb-4">Особенности</h3>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {product.features.map((feature, idx) => (
-                <span
-                  key={idx}
-                  className="text-sm px-3 py-1 bg-primary/5 rounded-full text-primary"
-                >
-                  {feature}
-                </span>
-              ))}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Описание</h3>
+              <p className="text-lg leading-relaxed">{product.fullDescription}</p>
             </div>
-          </div>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Применение</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {product.applications.map((app, idx) => (
-                <li key={idx} className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  {app}
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Ключевые особенности</h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {product.features.map((feature, idx) => (
+                  <span
+                    key={idx}
+                    className="text-sm px-3 py-1 bg-primary/5 rounded-full text-primary"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Области применения</h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {product.applications.map((app, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <span>{app}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Техническая спецификация</h3>
+              <p className="text-muted-foreground">{product.details}</p>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -1,4 +1,3 @@
-
 import { useParams, Link } from 'react-router-dom';
 import { Brain, Satellite, Network, Globe, Bot, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -59,7 +58,7 @@ const products = {
     name: "GearCI",
     description: "Вычислительная инфраструктура",
     icon: Network,
-    intro: "GearCI предоставляет облачную и распределённую вычислительную инфраструктуру для обработки больших данных, машинного обучения и высокопроизводительных вычислений.",
+    intro: "GearCI предоставляет облачную и распределённую вычислительную инфраструктура для обработки больших данных, машинного обучения и высокопроизводительных вычислений.",
     fullDescription: `Эти решения подходят для анализа данных, работы с AI, блокчейн-инфраструктуры и других задач, 
     требующих высокой мощности.`,
     technologies: [

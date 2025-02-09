@@ -1,3 +1,4 @@
+
 import { useParams, Link } from 'react-router-dom';
 import { Brain, Satellite, Network, Globe, Bot, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -117,7 +118,14 @@ const ProductDetail = () => {
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
         <nav className="glass mx-auto mt-4 px-8 py-4 rounded-lg bg-white/60 w-[90%]">
           <div className="flex items-center justify-center gap-12">
-            <Link to="/" className="text-xl font-bold">GearTech</Link>
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="ghost" size="icon" className="hover:bg-white/20">
+                  <ArrowLeft className="w-5 h-5" />
+                </Button>
+              </Link>
+              <Link to="/" className="text-xl font-bold">GearTech</Link>
+            </div>
             <div className="flex gap-6">
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">О нас</Link>
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Продукты</Link>

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Globe, Rocket, Brain, Satellite, Network, Bot } from "lucide-react";
 import { motion } from "framer-motion";
@@ -88,7 +87,7 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
         <nav className="glass mx-auto mt-4 px-8 py-4 rounded-lg bg-white/60 w-[90%]">
-          <div className="flex items-center gap-12">
+          <div className="flex items-center justify-center gap-12">
             <div className="text-xl font-bold">GearTech</div>
             <div className="flex gap-6">
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>

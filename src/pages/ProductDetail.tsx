@@ -1,4 +1,3 @@
-
 import { useParams, Link } from 'react-router-dom';
 import { Brain, Satellite, Network, Globe, Bot, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -115,27 +114,20 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="relative bg-transparent mb-12">
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-[#33C3F0]/80 to-[#1EAEDB]/60 backdrop-blur-md"
-          style={{
-            boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
-            borderBottom: '1px solid rgba(255,255,255,0.3)'
-          }}
-        />
-        <div className="container mx-auto py-6 relative">
-          <div className="flex items-center gap-4">
-            <Link to="/">
-              <Button variant="ghost" size="icon" className="hover:bg-white/20 transition-colors">
-                <ArrowLeft className="w-5 h-5" />
-              </Button>
-            </Link>
-            <h1 className="text-3xl font-bold text-white">{product.name}</h1>
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
+        <nav className="glass mx-auto mt-4 px-8 py-4 rounded-lg bg-white/60 w-[90%]">
+          <div className="flex items-center justify-center gap-12">
+            <Link to="/" className="text-xl font-bold">GearTech</Link>
+            <div className="flex gap-6">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">О нас</Link>
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Продукты</Link>
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Контакты</Link>
+            </div>
           </div>
-        </div>
+        </nav>
       </header>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 pt-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

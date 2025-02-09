@@ -1,3 +1,4 @@
+
 import { useParams, Link } from 'react-router-dom';
 import { Brain, Satellite, Network, Globe, Bot, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -152,49 +153,63 @@ const ProductDetail = () => {
           transition={{ duration: 0.5 }}
           className="space-y-8"
         >
-          <Card className="glass">
-            <CardHeader className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/5 rounded-xl">
-                  <Icon className="w-8 h-8 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Левая колонка */}
+            <Card className="glass h-fit">
+              <CardHeader className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/5 rounded-xl">
+                    <Icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">{product.name}</CardTitle>
+                    <CardDescription className="text-lg">{product.description}</CardDescription>
+                  </div>
                 </div>
-                <div>
-                  <CardTitle className="text-2xl">{product.name}</CardTitle>
-                  <CardDescription className="text-lg">{product.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-4">
+                  <p className="text-lg leading-relaxed">{product.intro}</p>
+                  <p className="text-muted-foreground">{product.fullDescription}</p>
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <p className="text-lg leading-relaxed">{product.intro}</p>
-                <p className="text-muted-foreground">{product.fullDescription}</p>
-              </div>
+              </CardContent>
+            </Card>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Технологии и направления</h3>
-                <ul className="grid gap-3">
-                  {product.technologies.map((tech, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="mt-2 w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                      <span>{tech}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Правая колонка */}
+            <div className="space-y-8">
+              <Card className="glass">
+                <CardHeader>
+                  <CardTitle className="text-xl">Технологии и направления</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="grid gap-3">
+                    {product.technologies.map((tech, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="mt-2 w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                        <span>{tech}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Продукты {product.name}</h3>
-                <ul className="grid gap-3">
-                  {product.products.map((prod, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="mt-2 w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                      <span>{prod}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </CardContent>
-          </Card>
+              <Card className="glass">
+                <CardHeader>
+                  <CardTitle className="text-xl">Продукты {product.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="grid gap-3">
+                    {product.products.map((prod, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="mt-2 w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                        <span>{prod}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>
@@ -202,3 +217,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+

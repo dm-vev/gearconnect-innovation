@@ -1,11 +1,12 @@
-
 import { useEffect, useRef } from "react";
-import { Globe, Rocket, Brain, Satellite, Network, Bot, Users, Building2, Blocks, Radio, CircuitBoard } from "lucide-react";
+import { Globe, Rocket, Brain, Satellite, Network, Bot } from "lucide-react";
 import { motion } from "framer-motion";
 import Typed from "typed.js";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const typedRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,6 +33,7 @@ const Index = () => {
 
   const products = [
     {
+      id: "gearai",
       name: "GearAI",
       description: "Искусственный интеллект для бизнес-решений",
       icon: Brain,
@@ -39,6 +41,7 @@ const Index = () => {
       features: ["Машинное обучение", "Нейронные сети", "Предиктивная аналитика"]
     },
     {
+      id: "gearscs",
       name: "GearSCS",
       description: "Спутниковые системы связи",
       icon: Satellite,
@@ -46,6 +49,7 @@ const Index = () => {
       features: ["Глобальное покрытие", "Высокая скорость", "Надёжность"]
     },
     {
+      id: "gearci",
       name: "GearCI",
       description: "Вычислительная инфраструктура",
       icon: Network,
@@ -53,6 +57,7 @@ const Index = () => {
       features: ["Облачные решения", "Высокая производительность", "Масштабируемость"]
     },
     {
+      id: "gearnet",
       name: "GearNET",
       description: "Децентрализованные сети",
       icon: Globe,
@@ -60,6 +65,7 @@ const Index = () => {
       features: ["Блокчейн", "Безопасность", "Прозрачность"]
     },
     {
+      id: "gearkit",
       name: "GearKit",
       description: "Робототехнические решения",
       icon: Bot,
@@ -70,8 +76,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="section-padding min-h-[80vh] flex items-center justify-center relative overflow-hidden">
+      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-b border-white/20 z-50">
+        <div className="container mx-auto py-4">
+          <nav className="flex items-center justify-between">
+            <div className="text-xl font-bold">GearTech</div>
+            <div className="flex gap-6">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Продукты</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Контакты</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <section className="section-padding pt-32 min-h-[80vh] flex items-center justify-center relative overflow-hidden">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -97,7 +115,6 @@ const Index = () => {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent to-background/20"></div>
       </section>
 
-      {/* Products Section */}
       <section className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
@@ -106,14 +123,15 @@ const Index = () => {
               Интегрированные решения для различных отраслей
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {products.map((product, index) => (
               <motion.div
                 key={product.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="glass p-8 rounded-2xl hover:shadow-xl transition-all duration-300"
+                className="glass p-8 rounded-2xl hover:shadow-xl transition-all duration-300 w-[calc(33.333%-1.5rem)] min-w-[320px] cursor-pointer"
+                onClick={() => navigate(`/product/${product.id}`)}
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/5 rounded-xl mb-4">
                   <product.icon className="w-6 h-6 text-primary" />
@@ -139,7 +157,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="section-padding">
         <div className="container mx-auto text-center">
           <h2 className="section-title mb-6">
@@ -159,7 +176,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-black/10 backdrop-blur-md border-t border-white/10">
         <div className="container mx-auto py-6 px-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">

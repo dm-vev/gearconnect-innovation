@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import { Globe, Rocket, Brain, Satellite, Network, Robot } from "lucide-react";
+import { Globe, Rocket, Brain, Satellite, Network, Bot } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -32,7 +32,7 @@ const Index = () => {
     {
       name: "GearKit",
       description: "Робототехнические решения",
-      icon: Robot,
+      icon: Bot,
     },
   ];
 
